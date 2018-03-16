@@ -12,18 +12,13 @@ export class ProductoService {
     let jsonData = JSON.parse(MOCKS_PRODUCTOS.stock);
 
     jsonData.forEach( element => {
-      
-      let producto = new Producto(
-                          element.nombre, 
-                          element.precio,
-                          element.unidad,
-                          element.oferta,
-                          element.foto,
-                          );
+        
+        let producto = new Producto(element.nombre,element.precio,element.unidad, element.oferta, element.foto);
 
-      this.productos.push(producto);
-  });
-  return this.productos;
+        this.productos.push(producto);
 
-}
+    });
+    console.log(this.productos);
+    return this.productos;
+  }
 }

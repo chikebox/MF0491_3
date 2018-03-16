@@ -1,5 +1,44 @@
 <header>
-    <span id="titulo">SUPERMERCADO</span>
-    <input type="text" placeholder="Buscar en supermercado">
-    <span id="icono-busqueda"><i class="fa fa-search" aria-hidden="false"></i></span>
+  <div class="titulo col-lg-6">
+      <span id="titulo">SUPERMERCADO</span> 
+  </div> 
+
+
+  <div class="col-lg-3">
+      
+      <div class="cabecera input-group">
+        <input type="text" [(ngModel)]="searchText" class="form-control" placeholder="Buscar en supermercado">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button"><i class="fa fa-search" aria-hidden="false"></i></button>
+        </span>
+      </div>
+  </div>
+  <div class="carrito col-lg-3">
+    <div (click)="cambiarActivo()"id="carrito"[class.active]="activo">
+        <span class="badge">{{carrito.numProductos}}</span><span><i class="fa fa-shopping-basket" aria-hidden="true"></i>   {{ carrito.precio }} <i class="fa fa-eur" aria-hidden="true"></i></span>
+    
+    </div>
+  </div>
 </header>
+<div class="listado row">
+    <div *ngFor="let producto of stock | filter : searchText" class="col-xs-6 col-sm-3">
+      <div id="datos-producto" class="thumbnail">
+          <div *ngIf="producto.oferta!=0" id="oferta">
+            <span>{{producto.oferta}}%</span>
+          </div>
+          <img id="imagen-producto"src="{{producto.foto}}" alt="{{ producto.nombre }}">
+          <div class="caption">
+          <p id="precios"><span [ngClass]="(producto.oferta!=0)?'tachada':''">{{producto.precio}}<i class="fa fa-eur" aria-hidden="true">/{{producto.unidad}}</i></span> <span class="precio-oferta" *ngIf="producto.oferta!=0">{{producto.precioOriginal}}<i class="fa fa-eur" aria-hidden="true"></i>/{{producto.unidad}}</span></p>
+          <p>{{producto.nombre}}</p>
+          <div id="cantidad">
+            <span class="resta" (click)="restar(producto)">-</span>
+            <span class="cantidad">{{producto.cantidad}}</span>
+            <span class="suma" (click)="sumar(producto)">+</span>
+            
+          </div>
+        </div> 
+      </div>
+      <button class="comprar" (click)="subirAlCarrito(producto)">Añadir al carrito</button>
+
+</div>
+
