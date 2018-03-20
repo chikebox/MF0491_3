@@ -13,11 +13,17 @@
         </span>
       </div>
   </div>
-  <div class="carrito col-lg-3">
-    <div (click)="cambiarActivo()"id="carrito"[class.active]="activo">
-        <span class="badge">{{carrito.numProductos}}</span><span><i class="fa fa-shopping-basket" aria-hidden="true"></i>   {{ carrito.precio }} <i class="fa fa-eur" aria-hidden="true"></i></span>
-    
+  <div (click)="cambiarActivo()" class="carrito col-lg-3">
+    <div id="carrito">
+        <span class="badge">{{carrito.numProductos}}</span><span><i class="fa fa-shopping-basket" aria-hidden="true"></i>   {{ carrito.precio }} <i class="fa fa-eur" aria-hidden="true"></i></span> 
     </div>
+    <div class="col-lg-12" [ngClass]="activo?'visible':'invisible'" >
+        <app-carrito [carrito]="carrito"></app-carrito>
+        <div id="botones">
+            <button (click)="vaciarCarrito()"id="borrado">Vaciar el carrito</button>
+            <button id="compra">Ver/Tramitar Compra</button>
+          </div>
+     </div>
   </div>
 </header>
 <div class="listado row">
@@ -39,6 +45,6 @@
         </div> 
       </div>
       <button class="comprar" (click)="subirAlCarrito(producto)">Añadir al carrito</button>
-
+    </div>
 </div>
 

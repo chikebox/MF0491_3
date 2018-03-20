@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { SupermercadoComponent } from './supermercado/supermercado.component';
 import { ProductoService } from './providers/producto-service.service';
 import { FilterPipe } from './pipes/filtro';
+import { CarritoComponent } from './carrito/carrito.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     SupermercadoComponent,
-    FilterPipe
+    FilterPipe,
+    CarritoComponent
     
   ],
   imports: [

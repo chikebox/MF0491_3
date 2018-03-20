@@ -1,0 +1,16 @@
+<div class="row">
+    <div class="col-xs-12">
+        <div *ngFor="let producto of carrito.productos" class="thumbnail">
+            <img id="imagen-producto"src="{{producto.foto}}" alt="{{ producto.nombre }}">
+            <div class="caption">
+            <p>{{producto.nombre}}</p>
+            <p><span class="cantidad">{{producto.cantidad}}</span></p>
+            <p><span class="precio-oferta">{{producto.precioOriginal}}<i class="fa fa-eur" aria-hidden="true"></i>/{{producto.unidad}}</span></p>
+            </div>
+        </div> 
+      <div id=precio>
+        <p>Precio: {{carrito.precio}}</p>
+      </div>
+    </div>
+    
+</div>

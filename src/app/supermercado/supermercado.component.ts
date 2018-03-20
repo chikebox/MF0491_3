@@ -46,4 +46,7 @@ export class SupermercadoComponent implements OnInit {
   cambiarActivo(){
     this.activo=!this.activo;
   }
+  vaciarCarrito(){
+    this.carrito=new Carrito();
+  }
 }

@@ -12,7 +12,12 @@ export class Producto{
         this.unidad=unidad
         this.oferta=oferta;
         this.foto=foto;
-        this.precioOriginal=Math.round((this.precio-this.precio*this.oferta/100)*100)/100;
+        if(this.oferta!=0){
+            this.precioOriginal=Math.round((this.precio-this.precio*this.oferta/100)*100)/100;
+        }
+        else{
+            this.precioOriginal=this.precio;
+        }
         this.cantidad=1;
     }
     

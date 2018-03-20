@@ -114,3 +114,27 @@ header{
         background-color:rgb(184, 253, 184);
     }
 }
+.invisible{
+    visibility:hidden;
+    position:absolute;
+}
+.visible{
+    visibility:visible;
+    position:absolute;
+    z-index:5;
+}
+#botones{
+    background-color: white;
+}
+#borrado{
+    color:rgb(118, 240, 118);;
+    background-color:white;
+    height:100px;
+    width:49%;
+}
+#compra{
+    color:white;
+    background-color:rgb(118, 240, 118);;
+    height:100px;
+    width:49%;
+}
